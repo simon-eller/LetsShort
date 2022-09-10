@@ -152,7 +152,7 @@ The issue tracker is the preferred channel for [bug reports](#bug-reports),
 requests](#pull-requests), but please respect the following restrictions:
 
 * Please **do not** use the issue tracker for personal support requests.  
-  Use [discussions](https://github.com/simon-eller/LetsShortBot/discussions) instead to ask the community for help.
+  Use [discussions](https://github.com/simon-eller/LetsShort/discussions) instead to ask the community for help.
 
 * Please **do not** derail or troll issues.  
   Keep the discussion on topic and respect the opinions of others.
@@ -173,10 +173,7 @@ Guidelines for bug reports:
 3. **Give details**  
    A good bug report shouldn't leave others needing to chase you up for more
    information. Please try to be as detailed as possible in your report.
-   Give any information that is relevant to the bug: 
-   * YOURLS & MySQL & PHP versions
-   * Server Software
-   * Browser name & version
+   Give any information that is relevant to the bug:
    
    What is the expected output? What do you see instead? See the report example below.  
 4. **Isolate the problem**  
@@ -186,7 +183,7 @@ Guidelines for bug reports:
 
 ### Feature requests
 
-Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the YOURLS developers of the merits of this feature. Please provide as much detail and context as possible.
+Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the LetsShortBot developers of the merits of this feature. Please provide as much detail and context as possible.
 
 ### Pull requests
 
@@ -200,7 +197,7 @@ commits.
    something that the developers might not want to merge into the project.
 2. **Licensing**  
    By submitting a patch, you agree that your code will be licensed under the
-   [Creative Commons Attribution Share Alike 4.0 International License](https://github.com/simon-eller/LetsShortBot/blob/main/LICENSE) terms.
+   [Creative Commons Attribution Share Alike 4.0 International License](https://github.com/simon-eller/LetsShort/blob/main/LICENSE) terms.
 3. **Coding Standards**  
    Please adhere to the coding conventions used throughout the project (indentation,
    comments, etc.). Make sure you've tested your patch under
