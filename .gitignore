@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/firebase.json
+/token.txt
+/letsshortbot.ini
+/production/lets-short/
+/production/lets-short/.idea/
+/production/lets-short/token.txt
+/procution/lets-short/letsshortbot.ini
+/production/lets-short/firebase.json
+/tests/
