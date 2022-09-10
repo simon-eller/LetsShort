@@ -625,9 +625,9 @@ def save_url(id, shorturl):
 
 # parse api urls from env-file into objects
 TINYURL = Shortener(config['PROVIDERS']['tinyurl'])
-ISGD = Shortener(config['PROVIDERS']['tinyurl'])
-VGD = Shortener(config['PROVIDERS']['tinyurl'])
-CUTTLY = Shortener(config['PROVIDERS']['tinyurl'])
+ISGD = Shortener(config['PROVIDERS']['isgd'])
+VGD = Shortener(config['PROVIDERS']['vgd'])
+CUTTLY = Shortener(config['PROVIDERS']['cuttly'])
 
 bot.polling()
 

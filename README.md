@@ -118,12 +118,14 @@ flowchart TB
     b4--> b5{yourls config == 0}
     
     b5 -->|yes| b6[ask the user to submit\ntheir yourls api url]
+    b6 --> b7(userStep = 1)
     b5 -->|no| b7[change shortener in\ndatabase to yourls]
     b7 --> b8(check if the yourls config\nworks and return result)
-    b8 -->a1
+    b8 --> b9(userStep = 0)
+    b9 -->a1
     end
     subgraph userStep 1
-    b6 -->|user submits url| c1
+    b7 -->|user submits url| c1
     c1(change shortener in\ndatabase to yourls) --> c3(userStep = 0)
     c3 --> a1
     end
