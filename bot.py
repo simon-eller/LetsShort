@@ -27,6 +27,12 @@ class Shortener(object):
     def get_url(self):
         return self.url
 
+# Parse api urls from env-file into objects
+TINYURL = Shortener(config['PROVIDERS']['tinyurl'])
+ISGD = Shortener(config['PROVIDERS']['isgd'])
+VGD = Shortener(config['PROVIDERS']['vgd'])
+CUTTLY = Shortener(config['PROVIDERS']['cuttly'])
+
 # Fetch the service account key JSON file contents
 cred = credentials.Certificate('firebase.json')
 
@@ -236,7 +242,7 @@ def command_stats(m):
         status = response['status']
 
         if status == 1:
-            message = translations[lang]['title'] + response['title'] + "\n" + translations[lang]['date'] + response['date'] + "\n" + translations[lang]['full-link'] + response['fullLink'] + "\n" + translations[lang]['clicks'] + response['clicks']
+            message = translations[lang]['title'] + response['title'] + "\n" + translations[lang]['date'] + response['date'] + "\n" + translations[lang]['full-link'] + response['fullLink'] + "\n" + translations[lang]['clicks'] + str(response['clicks'])
 
         else:
             message = translations[lang]['error']
@@ -623,12 +629,7 @@ def save_url(id, shorturl):
         'url': shorturl
     })
 
-# parse api urls from env-file into objects
-TINYURL = Shortener(config['PROVIDERS']['tinyurl'])
-ISGD = Shortener(config['PROVIDERS']['isgd'])
-VGD = Shortener(config['PROVIDERS']['vgd'])
-CUTTLY = Shortener(config['PROVIDERS']['cuttly'])
-
+bot.remove_webhook()
 bot.polling()
 
 # TODO: &action=version&format=json get version
