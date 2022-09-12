@@ -27,6 +27,12 @@ class Shortener(object):
     def get_url(self):
         return self.url
 
+# Parse api urls from env-file into objects
+TINYURL = Shortener(config['PROVIDERS']['tinyurl'])
+ISGD = Shortener(config['PROVIDERS']['isgd'])
+VGD = Shortener(config['PROVIDERS']['vgd'])
+CUTTLY = Shortener(config['PROVIDERS']['cuttly'])
+
 # Fetch the service account key JSON file contents
 cred = credentials.Certificate('firebase.json')
 
@@ -38,9 +44,10 @@ firebase_admin.initialize_app(cred, {
 # Initialize database path to root
 ref = db.reference('/')
 
-# Read private token from file
+# Read private token from env-file
 TOKEN = config['SETTINGS']['token']
 
+# Read owner id from env-file
 OWNER_ID = config['SETTINGS']['owner']
 knownUsers = []
 server = Flask(__name__)
@@ -159,7 +166,7 @@ def command_change_shortener2(m):
         yourls_config = get_yourls_link(cid)
 
         # if no yourls configuration was already added to database
-        if yourls_config == "0" or yourls_config == 0 or yourls_config == "reset":    #TODO: check if this works
+        if yourls_config == "0" or yourls_config == 0 or yourls_config == "reset":
             bot.send_message(cid, translations[lang]['yourls1'])
             userStep[cid] = 1  # set the user to the next step (expecting a reply in the listener now)
 
@@ -236,8 +243,7 @@ def command_stats(m):
         status = response['status']
 
         if status == 1:
-            message = translations[lang]['title'] + response['title'] + "\n" + translations[lang]['date'] + response['date'] + "\n" + translations[lang]['full-link'] + response['fullLink'] + "\n" + translations[lang]['clicks'] + response['clicks']
-
+            message = translations[lang]['title'] + response['title'] + "\n" + translations[lang]['date'] + response['date'] + "\n" + translations[lang]['full-link'] + response['fullLink'] + "\n" + translations[lang]['clicks'] + str(response['clicks'])
         else:
             message = translations[lang]['error']
 
@@ -628,7 +634,6 @@ def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
-
 @server.route("/")
 def webhook():
     bot.remove_webhook()
@@ -637,9 +642,4 @@ def webhook():
 
 
 if __name__ == "__main__":
-    TINYURL = Shortener(config['PROVIDERS']['tinyurl'])
-    ISGD = Shortener(config['PROVIDERS']['isgd'])
-    VGD = Shortener(config['PROVIDERS']['vgd'])
-    CUTTLY = Shortener(config['PROVIDERS']['cuttly'])
-
-    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+    server.run()

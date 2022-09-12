@@ -2,7 +2,7 @@ translations = {
     'en': {
         'welcome': 'Welcome, just send me a link and I short it for you.',
         'know': 'I know you already.',
-        'about': 'This bot was programmed in Python 3.9 by @simoneller.\nCurrent version: 2.3\nHosted at deineseite.net\n\nMore information: url.simon-eller.at/lets-short-en',
+        'about': 'This bot was programmed in Python 3.9 by @simoneller.\nCurrent version: 2.3\nHosted at https://deineseite.net\n\nMore information: https://url.simon-eller.at/lets-short-en',
         'help_text': 'There are following commands: \n',
         'yes': 'yes',
         'no': 'no',
@@ -66,7 +66,7 @@ translations = {
         'mylinks-error': 'An error occurec, you have not shorten a link already.',
         'privacy-text': 'Welcome to the privacy menu.\nHere you can inquiry or delete your personal data '
                         'according to the GDPR.\nYou can find our privacy policy on '
-                        'url.simon-eller.at/lets-short-en#privacy.',
+                        'https://url.simon-eller.at/lets-short-en#privacy.',
         'error': 'An error occured, please contact the admin.',
         'change-shortener': 'Please choose the provider you want to short urls with.',
         'isgd-stats-error': 'Please insert a valid link with https://xx.gd/xxx.',
@@ -76,7 +76,7 @@ translations = {
     'de': {
         'welcome': 'Willkommen, senden Sie mir einfach Ihre Links und ich kürze diese für Sie.',
         'know': 'Ich kenne Sie bereits.',
-        'about': 'Dieser Bot wurde in Python 3.9 von @simoneller programmiert.\nAktuelle Version: 2.3\nGehosted bei deineseite.net\n\nWeitere Infos: url.simon-eller.at/lets-short',
+        'about': 'Dieser Bot wurde in Python 3.9 von @simoneller programmiert.\nAktuelle Version: 2.3\nGehosted bei https://deineseite.net\n\nWeitere Infos: https://url.simon-eller.at/lets-short',
         'help_text': 'Es gibt folgende Befehle: \n',
         'yes': 'ja',
         'no': 'nein',
@@ -140,7 +140,7 @@ translations = {
         'mylinks-error': 'Fehler, Sie haben noch keinen Link gekürzt.',
         'privacy-text': 'Willkommen in Datenschutz-Menü.\nHier können Sie laut Ihren Rechten der DSGVO eine Auskunft all'
                         'Ihrer gespeicherten Daten erhalten, sowie alle Ihre Daten löschen.\n'
-                        'Unsere Datenschutzerklärung finden Sie hier: url.simon-eller.at/lets-short#datenschutz',
+                        'Unsere Datenschutzerklärung finden Sie hier: https://url.simon-eller.at/lets-short#datenschutz',
         'error': 'Ein Fehler ist aufgetreten, bitte kontaktieren Sie den Admin.',
         'change-shortener': 'Wählen Sie den Anbieter aus, den Sie in Zukunft nutzen wollen.',
         'isgd-stats-error': 'Bitte geben Sie einen gültigen Link im Format https://xx.gd/xxx. ein.',

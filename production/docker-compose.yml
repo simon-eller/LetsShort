@@ -1,0 +1,33 @@
+version: '2.3'
+services:
+  letsshortbot:
+    container_name: letsshortbot
+    restart: always
+    env_file: .env
+    build: .
+    networks:
+      - db_network
+      - web_network
+  nginx:
+    container_name: nginx
+    restart: always
+    image: "nginx:latest"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./data/certbot/conf:/etc/certbot/conf
+      - ./data/certbot/www:/var/www/certbot
+    networks:
+      - web_network
+    depends_on:
+      - letsshortbot
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+networks:
+  db_network:
+    driver: bridge
+  web_network:
+    driver: bridge
