@@ -29,7 +29,8 @@ VGD = Shortener("https://v.gd/create.php?format=json&url=")
 CUTTLY = Shortener("https://cutt.ly/api/api.php?key=" + os.environ.get('CUTTLY_API_TOKEN'))
 
 # Fetch the service account key JSON file contents
-cred = credentials.Certificate(os.environ.get('FIREBASE_KEY'))
+cred_raw = os.environ.get('FIREBASE_KEY')
+cred = credentials.Certificate(cred_raw)
 
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
