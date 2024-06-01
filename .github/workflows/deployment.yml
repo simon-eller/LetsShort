@@ -1,0 +1,25 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+        env:
+          HD_FIREBASE_DB_URL: ${{secrets.FIREBASE_DB_URL}}
+          HD_FIREBASE_KEY: ${{secrets.FIREBASE_KEY}}
+          HD_TELEGRAM_BOT_OWNER: ${{secrets.TELEGRAM_BOT_OWNER}}
+          HD_TELEGRAM_BOT_TOKEN: ${{secrets.TELEGRAM_BOT_TOKEN}}
+          HD_HEROKU_WEBHOOK_URL: ${{secrets.HEROKU_WEBHOOK_URL}}
+          HD_CUTTLY_API_TOKEN: ${{secrets.CUTTLY_API_TOKEN}}

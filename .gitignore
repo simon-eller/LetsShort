@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 /firebase.json
 /token.txt
-/letsshortbot.ini
 /production/lets-short/
 /production/lets-short/.idea/
 /production/lets-short/token.txt

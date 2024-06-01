@@ -13,11 +13,6 @@ import lsbtranslations
 import urllib3 as urllib
 from bs4 import BeautifulSoup
 import certifi
-import configparser
-
-# Read configuration from the config ini-file
-config = configparser.ConfigParser()
-config.read('letsshortbot.ini')
 
 # Shortener class for different providers
 class Shortener(object):
@@ -27,29 +22,30 @@ class Shortener(object):
     def get_url(self):
         return self.url
 
-# Parse api urls from env-file into objects
-TINYURL = Shortener(config['PROVIDERS']['tinyurl'])
-ISGD = Shortener(config['PROVIDERS']['isgd'])
-VGD = Shortener(config['PROVIDERS']['vgd'])
-CUTTLY = Shortener(config['PROVIDERS']['cuttly'])
+# Create shortener objects
+TINYURL = Shortener("https://tinyurl.com/api-create.php?url=")
+ISGD = Shortener("https://is.gd/create.php?format=json&url=")
+VGD = Shortener("https://v.gd/create.php?format=json&url=")
+CUTTLY = Shortener("https://cutt.ly/api/api.php?key=" + os.environ.get('CUTTLY_API_TOKEN'))
 
 # Fetch the service account key JSON file contents
-cred = credentials.Certificate('firebase.json')
+cred = credentials.Certificate(os.environ.get('FIREBASE_KEY'))
 
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
-    'databaseURL': config['SETTINGS']['database_url']
+    'databaseURL': os.environ.get('FIREBASE_DB_URL')
 })
 
 # Initialize database path to root
 ref = db.reference('/')
 
 # Read private token from env-file
-TOKEN = config['SETTINGS']['token']
+TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 
 # Read owner id from env-file
-OWNER_ID = config['SETTINGS']['owner']
+OWNER_ID = os.environ.get('TELEGRAM_BOT_OWNER')
 knownUsers = []
+server = Flask(__name__)
 
 ref2 = db.reference('user')
 snapshot = ref2.order_by_key().get()
@@ -165,7 +161,7 @@ def command_change_shortener2(m):
         yourls_config = get_yourls_link(cid)
 
         # if no yourls configuration was already added to database
-        if yourls_config == "0" or yourls_config == 0 or yourls_config == "reset":    #TODO: check if this works
+        if yourls_config == "0" or yourls_config == 0 or yourls_config == "reset":      #TODO: check if this works
             bot.send_message(cid, translations[lang]['yourls1'])
             userStep[cid] = 1  # set the user to the next step (expecting a reply in the listener now)
 
@@ -243,7 +239,6 @@ def command_stats(m):
 
         if status == 1:
             message = translations[lang]['title'] + response['title'] + "\n" + translations[lang]['date'] + response['date'] + "\n" + translations[lang]['full-link'] + response['fullLink'] + "\n" + translations[lang]['clicks'] + str(response['clicks'])
-
         else:
             message = translations[lang]['error']
 
@@ -629,7 +624,22 @@ def save_url(id, shorturl):
         'url': shorturl
     })
 
-bot.remove_webhook()
-bot.polling()
+@server.route('/' + TOKEN, methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url=os.environ.get('HEROKU_WEBHOOK_URL') + TOKEN)
+    return "!", 200
+
+if __name__ == "__main__":
+    server.run()
+
+# commands for local testing
+#bot.remove_webhook()
+#bot.polling()
 
 # TODO: &action=version&format=json get version
