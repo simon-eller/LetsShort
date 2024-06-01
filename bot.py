@@ -644,3 +644,6 @@ if __name__ == "__main__":
 #bot.polling()
 
 # TODO: &action=version&format=json get version
+# TODO: implement action for broadcasting changelog to users
+# TODO: add filter to bypass deployment on just pushing changes in README.txt into main
+# TODO: update contributing info
