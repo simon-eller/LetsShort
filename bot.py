@@ -633,7 +633,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url=os.environ.get('HEROKU_WEBHOOK_URL') + TOKEN)
+    bot.set_webhook(url=os.environ.get('HERO_WEBHOOK_URL') + TOKEN)
     return "!", 200
 
 if __name__ == "__main__":
