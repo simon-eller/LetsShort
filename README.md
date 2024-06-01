@@ -21,18 +21,6 @@ Requirements for your own URL shortener with YOURLS are your own web server, a M
 
 ## Documentation
 
-### Dependencies
-#### Python packages
-- [Flask](https://pypi.org/project/Flask/) 2.2.2
-- [requests](https://pypi.org/project/requests/) 2.28.1
-- [pyTelegramBotAPI](https://pypi.org/project/pyTelegramBotAPI/) 4.7.0
-- [python-firebase](https://pypi.org/project/python-firebase/) 1.2
-- [firebase-admin](https://pypi.org/project/firebase-admin/) 5.3.0
-- [urllib3](https://pypi.org/project/urllib3/) 1.26.12
-- [beautifulsoup4](https://pypi.org/project/beautifulsoup4/) 4.11.1
-- [certifi](https://pypi.org/project/certifi/) 2022.6.15
-- [configparser](https://pypi.org/project/configparser/) 5.3.0
-
 ### Database structure
 ```
 .
@@ -63,24 +51,17 @@ To run the code locally you need the following:
 - [Telegram Bot token](https://t.me/botfather)
 - A Python (minimum 3.8) environment with the dependencies installed
 
-Copy the firebase credentials JSON-file to your local version of the LetsShortBot to __firebase.json__.
+The credentials have to exist as environmental variables e.g. in a `.env` file.
 
-Create a file called __letsshortbot.ini__ and paste your bot token and Firebase project url:
+```env
+HD_FIREBASE_DB_URL
+HD_FIREBASE_KEY
+HD_TELEGRAM_BOT_TOKEN
 
-```buildoutcfg
-[SETTINGS]
-token = <YOUR_TOKEN>
-database_url = https://<YOUR_PROJECTNAME>.firebaseio.com
-```
-
-You also need to add the api urls in the following format into the __letsshortbot.ini__ file.
-
-```buildoutcfg
-[PROVIDERS]
-tinyurl = https://tinyurl.com/api-create.php?url=
-isgd = https://is.gd/create.php?format=json&url=
-vgd = https://v.gd/create.php?format=json&url=
-cuttly = https://cutt.ly/api/api.php?key=<yourcustomkey>
+# optional
+HD_TELEGRAM_BOT_OWNER
+HD_HERO_WEBHOOK_URL
+HD_CUTTLY_API_TOKEN
 ```
 
 ### Functions
