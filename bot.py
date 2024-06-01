@@ -637,7 +637,7 @@ def webhook():
     return "!", 200
 
 if __name__ == "__main__":
-    server.run()
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 
 # commands for local testing
 #bot.remove_webhook()
