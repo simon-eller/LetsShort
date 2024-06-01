@@ -477,7 +477,9 @@ def command_default(m):
 
     try:
         # it replies the shortened url
-        bot.send_message(m.chat.id, shorturl)
+        shorturl_monospace = "`" + shorturl + "`"
+        bot.send_message(m.chat.id, shorturl_monospace, parse_mode='MarkdownV2')
+
         # it saves the shortened url in the database
         save_url(m.chat.id, shorturl)
     except:
