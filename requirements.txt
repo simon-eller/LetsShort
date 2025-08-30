@@ -1,6 +1,6 @@
 Flask==3.1.2
 requests==2.32.5
-pyTelegramBotAPI==4.7.0
+pyTelegramBotAPI==4.29.0
 python-firebase==1.2
 firebase-admin==5.3.0
 urllib3==2.5.0
