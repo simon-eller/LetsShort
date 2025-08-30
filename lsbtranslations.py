@@ -2,7 +2,7 @@ translations = {
     'en': {
         'welcome': 'Welcome, just send me a link and I short it for you.',
         'know': 'I know you already.',
-        'about': 'This bot was programmed in Python 3.9 by @simoneller.\nCurrent version: 2.3.1\nMore information: https://url.simon-eller.at/lets-short-en',
+        'about': 'This bot was programmed in Python 3.9 by @simoneller.\nCurrent version: 2.3.2\nMore information: https://url.simon-eller.at/lets-short-en',
         'help_text': 'There are following commands: \n',
         'yes': 'yes',
         'no': 'no',
@@ -76,7 +76,7 @@ translations = {
     'de': {
         'welcome': 'Willkommen, senden Sie mir einfach Ihre Links und ich kürze diese für Sie.',
         'know': 'Ich kenne Sie bereits.',
-        'about': 'Dieser Bot wurde in Python 3.9 von @simoneller programmiert.\nAktuelle Version: 2.3.1\nWeitere Infos: https://url.simon-eller.at/lets-short',
+        'about': 'Dieser Bot wurde in Python 3.9 von @simoneller programmiert.\nAktuelle Version: 2.3.2\nWeitere Infos: https://url.simon-eller.at/lets-short',
         'help_text': 'Es gibt folgende Befehle: \n',
         'yes': 'ja',
         'no': 'nein',
