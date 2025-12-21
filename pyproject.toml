@@ -1,6 +1,6 @@
 [project]
 name = "letsshort"
-version = "2.4.2"
+version = "2.4.3"
 description = "The LetsShort Bot is a simple Telegram bot to short your URLs."
 readme = "README.md"
 requires-python = ">=3.9.13"
