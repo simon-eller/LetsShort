@@ -632,6 +632,10 @@ def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
+@server.route("/health")
+def health_check():
+    return "OK", 200
+
 @server.route("/")
 def webhook():
     bot.remove_webhook()
