@@ -1,0 +1,9 @@
+services:
+  letsshort:
+    container_name: letsshort
+    restart: always
+    env_file: .env
+
+    image: ghcr.io/simon-eller/LetsShort:latest
+    ports:
+      - "5005:5005"

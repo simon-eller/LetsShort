@@ -1,0 +1,18 @@
+[project]
+name = "letsshort"
+version = "2.4.4"
+description = "The LetsShort Bot is a simple Telegram bot to short your URLs."
+readme = "README.md"
+requires-python = ">=3.9.13"
+dependencies = [
+    "beautifulsoup4==4.14.3",
+    "certifi==2025.11.12",
+    "firebase-admin==7.1.0",
+    "flask==3.1.2",
+    "gunicorn>=23.0.0",
+    "pytelegrambotapi==4.29.0",
+    "python-firebase==1.2",
+    "requests==2.32.5",
+    "urllib3==2.6.2",
+    "werkzeug==3.1.4",
+]

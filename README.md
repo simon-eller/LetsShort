@@ -1,6 +1,6 @@
-# LetsShortBot
+# LetsShort Bot
 
-The Let's Short URL Bot is a simple [Telegram bot](https://t.me/LetsShortBot) to short your URLs.
+The LetsShort Bot is a simple [Telegram bot](https://t.me/LetsShortBot) to short your URLs.
 
 You can choose between different providers like Tinyurl, Cuttly, IS.GD, V.GD, but you can also configure your own [YOURLS](https://github.com/YOURLS/YOURLS) URL shortener.
 When you're finished with the settings you can just send your long links and get back the shortened version.
