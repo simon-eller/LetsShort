@@ -813,7 +813,7 @@ wheels = [
 
 [[package]]
 name = "letsshort"
-version = "2.4.0"
+version = "2.4.2"
 source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },

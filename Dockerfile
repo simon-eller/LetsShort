@@ -15,4 +15,4 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 ADD . /LetsShort
 
-CMD ["uv", "run", "gunicorn", "--config", "gunicorn-cfg.py", "run:app"]
+CMD ["uv", "run", "gunicorn", "--config", "gunicorn-cfg.py", "bot:server"]
