@@ -15,10 +15,6 @@ jobs:
     name: Build Docker image for ${{ github.ref_name }}
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        platforms: [linux/amd64, linux/arm64]
-
     steps:
       - name: Check out code
         uses: actions/checkout@v5
@@ -53,8 +49,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          target: web
-          platforms: ${{ matrix.platforms }}
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
